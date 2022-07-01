@@ -8,7 +8,7 @@ setup(
     author="ssleert",
     author_email="ssleert@gmail.com",
     url="https://github.com/unxsh/pt2bs",
-    packages=find_packages("src"),
+    packages=find_packages(),
     install_requires=["nuitka"],
     keywords=["python", "nuitka", "pbs", "compiler", "exe", "bin", "build"],
     classifiers=[
