@@ -19,7 +19,7 @@ def main() -> None:
         else:
             arg_1(argv[2], argv[3])
 
-        # if flag is -h, --help
+    # if flag is -h, --help
     elif arg_num == 2:
         arg_2()
 
