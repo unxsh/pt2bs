@@ -1,86 +1,94 @@
-# PBS - simple python script for build script with nuitka
+<div align="center">
 
-- why?
-- cuz i wonna automize build process for nuitka compiler
+<a href="https://github.com/miraclx/freyr-js">
+  <img src="https://media.discordapp.net/attachments/955362477137362954/992759487041650718/2022-07-02_14-51.png" alt="pt2bs">
+</a>
 
-# How to use?
-### check code and understand it.
-```python
-from os import system as sh
-from os import mkdir
-from shutil import rmtree
-from os import chdir
-from sys import argv
+# `pt2bs`
 
-# main file in program
-MAIN: str = "__main__.py"
+<h4>
+  Python to binary build system.
+</h4>
 
-# output file
-OFILE: str = "program"
+![Maintenance](https://img.shields.io/maintenance/yes/2022)
+![PyPi](https://img.shields.io/pypi/v/pt2bs)
+[![CodeFactor](https://www.codefactor.io/repository/github/unxsh/pt2bs/badge)](https://www.codefactor.io/repository/github/unxsh/pt2bs)
 
-# python for python interpreter
-PYFLAGS: str = """ \
-    -OO \
-"""
+[![GitHub stars](https://badgen.net/github/stars/unxsh/pt2bs)](https://GitHub.com/unxsh/pt2bs/stargazers/)
+[![GitHub issues](https://badgen.net/github/issues/unxsh/pt2bs)](https://GitHub.com/unxsh/pt2bs/issues/)
+![Commits](https://img.shields.io/github/commit-activity/m/unxsh/pt2bs)
 
-# compile flags
-CFLAGS: str = """ \
-    --warn-implicit-exceptions \
-    --warn-unusual-code \
-    --follow-imports \
-    --python-flag=-OO \
-    --disable-ccache \
-    --lto=yes \
-"""
+[![](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/release/python-383/)
+![License: MIT](https://img.shields.io/github/license/unxsh/pt2bs)
 
-# dir for binary file
-BINDIR: str = "/usr/local/bin"
+</div>
 
-# build command
-BUILD: str = f"python {PYFLAGS} -m nuitka {CFLAGS} -o {OFILE} ../{MAIN}"
+# Description
 
+`pt2bs` is a small build system for python based on nuitka for building a program into a single binary file.
+`pt2bs` generate a `build.py` file which contains the name of the main program file and the name of the output file as well as the args for the `python` interpreter and `nuitka` and from this generates a shell command to build the program into the `build/` dir.
 
-# if flags in incorrect
-if len(argv) == 1:
-    print("incorrect flags")
+(for template of build.py file see https://github.com/unxsh/pt2bs/blob/main/templates/build.py)
 
-# install option
-elif argv[1] == "install":
-    try:
-        # make build/ dir & change active dir to build/
-        mkdir("build/")
-        mkdir("build/")
-        chdir("build/")
+# Installation
 
-    # if dir already exist
-    except FileExistsError:
-        rmtree("build/")
-        mkdir("build/")
-        chdir("build/")
-
-    # execute build command
-    sh(BUILD)
-
-    # move OFILE file in BINDIR
-    sh(f"sudo mv {OFILE} {BINDIR}")
-
-# build option
-elif argv[1] == "build":
-    try:
-        # make build/ dir & change active dir to build/
-        mkdir("build/")
-        mkdir("build/")
-        chdir("build/")
-
-    # if dir already exist
-    except FileExistsError:
-        rmtree("build/")
-        mkdir("build/")
-        chdir("build/")
-
-    # execute build command
-    sh(BUILD)
-
-else:
-    print("incorrect flags")
+```fish
+pip install pt2bs
 ```
+
+# Usage
+
+```fish
+python -m pt2bs 
+```
+
+### Example usage
+```py
+ Main file of program.
+:main.py     # type here name of main file
+
+ Output file.
+:sfome       # type here name of executable file
+
+ [build.py generated]
+```
+or
+```fish
+python -m pt2bs -g main.py sfome
+```
+
+### flags
+```fish
+  -g, --generate | generate new build.py file with options by args
+  -h, --help     | print this message
+  -v, --version  | print program version
+```
+
+<br>
+<br>
+
+# File architecture
+```python
+pt2bs
+  ├── LICENSE
+  ├── pt2bs
+  │   ├── argp.py
+  │   ├── assets.py
+  │   ├── build.py
+  │   ├── funcs.py
+  │   ├── __init__.py
+  │   ├── __main__.py
+  │   ├── perform.py
+  │   └── pt2bs.py
+  ├── README.md
+  ├── setup.cfg
+  ├── setup.py
+  ├── templates
+  │   ├── build.py
+  │   └── idea.dat
+  └── tests
+      └── test.py
+
+3 directories, 15 files
+```
+
