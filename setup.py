@@ -20,7 +20,7 @@ setup(
     ],
     entry_points={
         'console_scripts': [
-            'pt2bs = pt2bs.pt2bs:main'
+            'pt2bs = pt2bs.__main__:main'
         ]
     }
 )
