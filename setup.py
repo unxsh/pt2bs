@@ -3,7 +3,7 @@ from setuptools import find_packages, setup
 setup(
     name="pt2bs",
     description="Python to binary build system based on nuitka.",
-    version="0.1",
+    version="0.1.2",
     license="MIT",
     author="ssleert",
     author_email="ssleert@gmail.com",
@@ -15,12 +15,6 @@ setup(
         "Intended Audience :: Developers",
         "Programming Language :: Python :: 3",
         "Operating System :: Unix",
-        "Operating System :: MacOS :: MacOS X",
-        "Operating System :: Microsoft :: Windows"
+        "Operating System :: MacOS :: MacOS X"
     ],
-    entry_points={
-        'console_scripts': [
-            'pt2bs = pt2bs.__main__:main'
-        ]
-    }
 )

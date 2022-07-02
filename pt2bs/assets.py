@@ -69,6 +69,6 @@ elif argv[1] == "install":
 else:
     print("incorrect flags")
 '''
-version: str = "pt2bs - 0.1"
 empty_field: str = "\n [input field is empty]\n"
 io_error: str = "\n [file inaccessible]\n"
+version: str = "pt2bs - 0.1.2"
