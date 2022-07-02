@@ -1,7 +1,7 @@
 from gc import disable as disable_gc  # disable gc
 from sys import argv  # command line args
 
-from args import arg_parse
+from argp import arg_parse
 from perform import arg_0, arg_1, arg_2, arg_3
 
 
