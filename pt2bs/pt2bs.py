@@ -1,9 +1,8 @@
 from gc import disable as disable_gc
-from os import _exit as fexit  # import for fast exit
 from sys import argv
 
 from args import arg_parse
-from assets import helpmsg, programmsg
+from perform import arg_0, arg_1, arg_2, arg_3
 
 
 def main() -> None:
@@ -14,22 +13,23 @@ def main() -> None:
 
     # if flag is -g, --generate
     if arg_num == 1:
-        pass
+        if len(argv) < 4:
+            print("flags is incorrect")
 
-    # if flag is -h, --help
+        else:
+            arg_1(argv[2], argv[3])
+
+        # if flag is -h, --help
     elif arg_num == 2:
-        print(programmsg)
-        print(helpmsg)
-
-        fexit(0)  # fast exit
+        arg_2()
 
     # if flag is -v, --version
     elif arg_num == 3:
-        pass
+        arg_3()
 
     # in else cases
     else:
-        pass
+        arg_0()
 
 
 if __name__ == "__main__":
