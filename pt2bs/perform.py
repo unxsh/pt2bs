@@ -2,12 +2,12 @@ from os import _exit as fexit  # import for fast exit
 
 from assets import (args_error, build_py_1, build_py_2, build_py_3, cmassage,
                     empty_field_error, helpmsg, io_error, main_file,
-                    mode_error, modes, o_file, programmsg, version)
+                    mode_error, modes, o_file, version)
 from funcs import make_exec, write_to_file
 
 
 def arg_1(main_file: str, ofile: str) -> None:
-    """if flag is -g, --generate"""
+    """if flag is -g"""
 
     try:
         write_to_file(build_py_1, main_file, ofile)
@@ -24,7 +24,6 @@ def arg_1(main_file: str, ofile: str) -> None:
 def arg_2() -> None:
     """if flag is -h, --help"""
 
-    print(programmsg)
     print(helpmsg)
 
     fexit(0)  # fast exit

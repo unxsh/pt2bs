@@ -11,7 +11,7 @@ def main() -> None:
 
     arg_num: int = arg_parse(argv)  # get arg number
 
-    # if flag is -g, --generate
+    # if flag is -g
     if arg_num == 1:
         arg_1(argv[2], argv[3])
 
