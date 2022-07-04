@@ -65,9 +65,9 @@ python -m pt2bs -g 2 sfome.py sfome
 
 ### flags
 ```fish
-  -g, --generate | generate new build.py file with options by args
-  -h, --help     | print this message
-  -v, --version  | print program version
+  -g --generate | generate new build.py file with options by args
+  -h --help     | print this message
+  -v --version  | print program version
 ```
 
 <br>
