@@ -2,7 +2,7 @@ from gc import disable as disable_gc  # disable gc
 from sys import argv  # command line args
 
 from argp import arg_parse
-from perform import arg_0, arg_1, arg_2, arg_3
+from perform import arg_0, arg_1, arg_2, arg_3, arg_4
 
 
 def main() -> None:
@@ -13,11 +13,7 @@ def main() -> None:
 
     # if flag is -g, --generate
     if arg_num == 1:
-        if len(argv) < 4:
-            print("flags is incorrect")
-
-        else:
-            arg_1(argv[2], argv[3])
+        arg_1(argv[2], argv[3])
 
     # if flag is -h, --help
     elif arg_num == 2:
@@ -26,6 +22,10 @@ def main() -> None:
     # if flag is -v, --version
     elif arg_num == 3:
         arg_3()
+
+    # if flags is incorrect
+    elif arg_num == 4:
+        arg_4()
 
     # in else cases
     else:

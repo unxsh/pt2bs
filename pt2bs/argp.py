@@ -12,7 +12,10 @@ def arg_parse(args: list) -> int:
 
     # if flag is -g, --generate
     elif args[1] in flags[0:2]:
-        return 1
+        if len(args) < 4:
+            return 4
+        else:
+            return 1
 
     # if flag is -h, --help
     elif args[1] in flags[2:4]:

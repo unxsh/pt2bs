@@ -226,6 +226,7 @@ elif argv[1] == "install":
 else:
     print("incorrect flags")
 '''
+args_error: str = "\n [flags is incorrect]\n"
 empty_field_error: str = "\n [input field is empty]\n"
 mode_error: str = "\n [this mode does not exist]\n"
 io_error: str = "\n [file inaccessible]\n"

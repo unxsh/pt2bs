@@ -1,6 +1,6 @@
 from os import _exit as fexit  # import for fast exit
 
-from assets import (build_py_1, build_py_2, build_py_3, cmassage,
+from assets import (args_error, build_py_1, build_py_2, build_py_3, cmassage,
                     empty_field_error, helpmsg, io_error, main_file,
                     mode_error, modes, o_file, programmsg, version)
 from funcs import make_exec, write_to_file
@@ -37,7 +37,15 @@ def arg_3() -> None:
     fexit(0)  # fast exit
 
 
+def arg_4() -> None:
+    """if flags is incorrect"""
+
+    print(args_error)
+    fexit(0)
+
+
 def arg_0() -> None:
+    """if no flags"""
 
     print(modes)  # message
     mode: str = input(":")
@@ -45,13 +53,11 @@ def arg_0() -> None:
     # convert mode type
     if mode == "":
         print(empty_field_error)
+        fexit(1)
 
     else:
-
         try:
-
             int_mode: int = int(mode)
-
             if int_mode > 3 or int_mode < 1:
                 print(mode_error)
                 fexit(1)
@@ -65,7 +71,6 @@ def arg_0() -> None:
                     fexit(1)
 
                 else:
-
                     print(o_file)  # message
                     ofile: str = input(":")
 
@@ -74,7 +79,6 @@ def arg_0() -> None:
                         fexit(1)
 
                     else:
-
                         if mainf == "" or ofile == "" or mode == "":
                             print(empty_field_error)
                             fexit(1)
