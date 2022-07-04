@@ -6,10 +6,10 @@ from os.path import isdir
 from sys import argv
 
 # main file in program
-MAIN: str = "[A"
+MAIN: str = "qasd"
 
 # output file
-OFILE: str = "[A[A"
+OFILE: str = "asd"
 
 # flags for python interpreter
 PYFLAGS: str = """ \
@@ -21,6 +21,8 @@ CFLAGS: str = """ \
     --warn-implicit-exceptions \
     --warn-unusual-code \
     --follow-imports \
+    --follow-stdlib \
+    --standalone \
     --python-flag=-OO \
     --disable-ccache \
     --lto=yes \
@@ -34,7 +36,14 @@ BUILD: str = f"python {PYFLAGS} -m nuitka {CFLAGS} -o {OFILE} ../{MAIN}"
 
 # if no flags
 if len(argv) == 1:
-    print("incorrect flags")
+    if isdir("build/"):
+        chdir("build/")
+
+    else:
+        mkdir("build/")
+        chdir("build/")
+
+    sh(BUILD)
 
 # build option
 elif argv[1] == "build":
