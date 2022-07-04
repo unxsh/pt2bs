@@ -44,17 +44,23 @@ python -m pt2bs
 
 ### Example usage
 ```py
+Modes:
+ 1) default (single binary without libs)
+ 2) default + pgo (may cause errors)
+ 3) standalone dir (binary + libs for distribute)
+:2
+
  Main file of program.
-:main.py     # type here name of main file
+:sfome.py
 
  Output file.
-:sfome       # type here name of executable file
+:sfome
 
  [build.py generated]
 ```
 or
 ```fish
-python -m pt2bs -g main.py sfome
+python -m pt2bs -g 2 sfome.py sfome
 ```
 
 ### flags
