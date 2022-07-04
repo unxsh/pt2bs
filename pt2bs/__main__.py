@@ -13,7 +13,8 @@ def main() -> None:
 
     # if flag is -g
     if arg_num == 1:
-        arg_1(argv[2], argv[3])
+        arg_mode: int = int(argv[2])
+        arg_1(arg_mode, argv[3], argv[4])
 
     # if flag is -h, --help
     elif arg_num == 2:

@@ -6,15 +6,30 @@ from assets import (args_error, build_py_1, build_py_2, build_py_3, cmassage,
 from funcs import make_exec, write_to_file
 
 
-def arg_1(main_file: str, ofile: str) -> None:
+def arg_1(mode: int, main_file: str, ofile: str) -> None:
     """if flag is -g"""
 
     try:
-        write_to_file(build_py_1, main_file, ofile)
-        make_exec()  # make file executable
+        if mode == 1:
+            write_to_file(build_py_1, main_file, ofile)
+            make_exec()  # make file executable
 
-        print(cmassage)
-        fexit(0)  # fast exit
+            print(cmassage)
+            fexit(0)  # fast exit
+
+        elif mode == 2:
+            write_to_file(build_py_2, main_file, ofile)
+            make_exec()  # make file executable
+
+            print(cmassage)
+            fexit(0)  # fast exit
+
+        elif mode == 3:
+            write_to_file(build_py_3, main_file, ofile)
+            make_exec()  # make file executable
+
+            print(cmassage)
+            fexit(0)  # fast exit
 
     except IOError:
         print(io_error)
