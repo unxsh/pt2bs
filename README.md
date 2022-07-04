@@ -76,16 +76,15 @@ python -m pt2bs -g 2 sfome.py sfome
 # File architecture
 ```python
 pt2bs
+  ├── build.py
   ├── LICENSE
   ├── pt2bs
   │   ├── argp.py
   │   ├── assets.py
-  │   ├── build.py
   │   ├── funcs.py
   │   ├── __init__.py
   │   ├── __main__.py
-  │   ├── perform.py
-  │   └── pt2bs.py
+  │   └── perform.py
   ├── README.md
   ├── setup.cfg
   ├── setup.py
@@ -95,6 +94,7 @@ pt2bs
   └── tests
       └── test.py
 
-3 directories, 15 files
+3 directories, 14 files
+
 ```
 
